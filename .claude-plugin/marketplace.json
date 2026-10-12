@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "skill-collection",
+  "description": "Curated and adapted Claude skills.",
+  "owner": {
+    "name": "Patience-dot-devl",
+    "url": "https://github.com/Patience-dot-devl"
+  },
+  "plugins": [
+    {
+      "name": "marketing",
+      "description": "Anthropic's marketing plugin (content, campaigns, brand voice, competitors, performance, SEO) plus a single-URL SEO / GEO / WCAG page audit.",
+      "source": "./skills/marketing",
+      "category": "productivity"
+    }
+  ]
+}

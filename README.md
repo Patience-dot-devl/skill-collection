@@ -12,6 +12,29 @@ this environment (Claude Code + Conductor) already ships built-in — see
 complementary, what needs adapting) and **[skills/vendored/](skills/vendored/)** for the files
 themselves: `superpowers/` (13 skills), `pypict/`, `ffuf/`, `webapp-testing/`.
 
+## Marketing plugin
+
+**[skills/marketing/](skills/marketing/)** is a fork of Anthropic's `marketing` plugin from
+[anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins)
+(Apache-2.0, upstream commit `02ffa99`). It keeps Anthropic's skills (`seo-audit`, `draft-content`,
+`content-creation`, `brand-review`, `campaign-plan`, `competitive-brief`, `email-sequence`,
+`performance-report`) and adds **`page-audit`**: a single-URL audit for SEO, GEO / AI search, WCAG,
+structured data and content quality. `page-audit` turns an 18-prompt SEO/GEO/WCAG prompt pack into
+18 modes across five reference files, behind one extraction script (`scripts/extract_page.py`,
+Python standard library only) that reads title, meta, canonical, headings, links, images, JSON-LD,
+form labels and robots.txt from the raw source. The plugin connects four free MCP servers
+(gocrawl, Chrome DevTools, Google Analytics, Search Console) instead of upstream's paid and unused ones; setup is in
+the plugin README, which also lists every change from upstream.
+
+Unlike `skills/vendored/`, this one is installable. The repo root has a plugin marketplace manifest:
+
+```bash
+claude plugin marketplace add Patience-dot-devl/skill-collection
+claude plugin install marketing@skill-collection
+```
+
+Do not also install `marketing@knowledge-work-plugins`; the two share skill names.
+
 ## Hubs (start here)
 
 - **[hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)** — the biggest, most active curated list of Claude Code skills, agents, hooks, and tooling (~49.5k stars, updated same-day).
