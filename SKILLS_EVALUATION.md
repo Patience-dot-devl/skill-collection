@@ -13,7 +13,10 @@ concrete SKILL.md) *and* fill a gap in that built-in set well enough to vendor i
 reference — either it overlaps with what we already have, is a full application rather than a
 drop-in skill, or its quality/maintenance couldn't be confirmed.
 
-## Vendored (`skills/vendored/`)
+## Vendored (`skills/vendored/`, and the `dev-tools` plugin)
+
+`pypict`, `ffuf` and `webapp-testing` moved to `skills/dev-tools/skills/` so they can be installed
+as the `dev-tools` plugin; their files are unchanged. Superpowers stays here as a reference copy.
 
 ### `superpowers/` — 13 skills from obra/superpowers (MIT, commit `d884ae0`)
 
@@ -78,6 +81,9 @@ extraction, GEO, WCAG, ready-to-use JSON-LD). Not yet run through an eval loop a
 baseline.
 
 ## Important caveat: vendoring ≠ installed
+
+This section applies to what remains in `skills/vendored/` (Superpowers). The `marketing`,
+`repo-playbooks` and `dev-tools` plugins are installable through the marketplace manifest.
 
 Copying these `SKILL.md` files into `skills/vendored/` makes them reviewable and diffable in this
 repo, but Claude Code doesn't discover skills from an arbitrary repo path — it looks in

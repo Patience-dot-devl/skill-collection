@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "skill-collection",
-  "description": "Curated and adapted Claude skills.",
+  "description": "Curated and adapted Claude skills: marketing, repository playbooks and development tools.",
   "owner": {
     "name": "Patience-dot-devl",
     "url": "https://github.com/Patience-dot-devl"
@@ -12,6 +12,18 @@
       "description": "Anthropic's marketing plugin (content, campaigns, brand voice, competitors, performance, SEO) plus a single-URL SEO / GEO / WCAG page audit.",
       "source": "./skills/marketing",
       "category": "productivity"
+    },
+    {
+      "name": "repo-playbooks",
+      "description": "Set up repositories with a standard knowledge layout and convention checker, maintain repos and living docs by their own rules, and explain things in Simplified Technical English.",
+      "source": "./skills/repo-playbooks",
+      "category": "productivity"
+    },
+    {
+      "name": "dev-tools",
+      "description": "Pairwise test design (PICT), ffuf web fuzzing for authorized security testing, and Playwright web app testing.",
+      "source": "./skills/dev-tools",
+      "category": "development"
     }
   ]
 }

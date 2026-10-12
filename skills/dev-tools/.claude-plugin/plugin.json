@@ -1,0 +1,8 @@
+{
+  "name": "dev-tools",
+  "version": "1.0.0",
+  "description": "Community and Anthropic development skills: pairwise test design with PICT, ffuf web fuzzing for authorized security testing, and Playwright web app testing.",
+  "author": {
+    "name": "Patience-dot-devl"
+  }
+}
