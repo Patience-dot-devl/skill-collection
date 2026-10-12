@@ -61,6 +61,22 @@ for specifically when `run` needs actual browser scripting rather than manual po
   claude-epub-skill) — all real repos (see `README.md` for links), but none address a gap in *this*
   coding-focused workflow. Worth revisiting if the work here shifts toward content/research tasks.
 
+## Marketing plugin (`skills/marketing/`)
+
+A fork of Anthropic's `marketing` plugin (anthropics/knowledge-work-plugins, Apache-2.0, commit
+`02ffa99`), installable through the marketplace manifest in `.claude-plugin/`. Anthropic's eight
+skills are unchanged apart from one pointer in `seo-audit`. The addition is `page-audit`.
+
+`page-audit` was written here from an 18-prompt SEO/GEO/WCAG prompt pack. One skill rather than
+eighteen, because every prompt takes the same input (one URL) and needs the same first step, and
+eighteen near-identical descriptions would compete for the same trigger. Fills a real gap: nothing
+built-in audits a web page, and a plain "analyse this URL" prompt reads a markdown rendering that
+drops the title tag, meta description, canonical, JSON-LD and alt attributes the audit is about.
+Complements Anthropic's `seo-audit` rather than duplicating it: `seo-audit` is site-wide (keyword
+research, content gaps, competitor benchmarks), `page-audit` goes deep on one URL (raw-source
+extraction, GEO, WCAG, ready-to-use JSON-LD). Not yet run through an eval loop against a no-skill
+baseline.
+
 ## Important caveat: vendoring ≠ installed
 
 Copying these `SKILL.md` files into `skills/vendored/` makes them reviewable and diffable in this
