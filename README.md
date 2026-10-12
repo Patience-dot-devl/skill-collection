@@ -4,13 +4,34 @@ A curated, fact-checked list of community-built Claude Skills and Claude Code ho
 
 Official Anthropic skills (docx/pptx/pdf/xlsx) cover common document tasks well but are narrow. These community skills/hooks extend Claude into dev workflows, research, and automation.
 
+## Installable plugins
+
+The repo root has a plugin marketplace manifest with three plugins:
+
+```bash
+claude plugin marketplace add Patience-dot-devl/skill-collection
+claude plugin install marketing@skill-collection
+claude plugin install repo-playbooks@skill-collection
+claude plugin install dev-tools@skill-collection
+```
+
+| Plugin | Skills |
+|---|---|
+| [`marketing`](skills/marketing/) | Anthropic's marketing plugin plus `page-audit` (see below) |
+| [`repo-playbooks`](skills/repo-playbooks/) | `setup-repo`, `repo-maintainer`, `knowledge-maintainer`, `explain-plane` |
+| [`dev-tools`](skills/dev-tools/) | `pict-test-designer`, `ffuf-web-fuzzing`, `webapp-testing` |
+
+The repository is private, so installing needs access to it.
+
 ## Vendored skills
 
 Four of the skills below were verified, pulled in as actual files, and evaluated against the skills
 this environment (Claude Code + Conductor) already ships built-in — see
 **[SKILLS_EVALUATION.md](SKILLS_EVALUATION.md)** for the full gap analysis (what's redundant, what's
-complementary, what needs adapting) and **[skills/vendored/](skills/vendored/)** for the files
-themselves: `superpowers/` (13 skills), `pypict/`, `ffuf/`, `webapp-testing/`.
+complementary, what needs adapting). Three of them (`pypict`, `ffuf`, `webapp-testing`) now ship in
+the `dev-tools` plugin. Superpowers (13 skills) stays in
+**[skills/vendored/](skills/vendored/)** for reference; install it from
+`superpowers@claude-plugins-official` instead.
 
 ## Marketing plugin
 
@@ -26,14 +47,15 @@ form labels and robots.txt from the raw source. The plugin connects four free MC
 (gocrawl, Chrome DevTools, Google Analytics, Search Console) instead of upstream's paid and unused ones; setup is in
 the plugin README, which also lists every change from upstream.
 
-Unlike `skills/vendored/`, this one is installable. The repo root has a plugin marketplace manifest:
-
-```bash
-claude plugin marketplace add Patience-dot-devl/skill-collection
-claude plugin install marketing@skill-collection
-```
-
 Do not also install `marketing@knowledge-work-plugins`; the two share skill names.
+
+## Repository playbooks
+
+**[skills/repo-playbooks/](skills/repo-playbooks/)** turns four JSON playbooks (`setup-repo`,
+`repo-maintainer`, `knowledge-maintainer`, `explain-plane`) into skills. The JSON versions lived in
+`~/.claude/plugins/global-playbooks/` without a plugin manifest, so Claude Code never loaded them.
+`setup-repo` ships a tested convention checker (`scripts/check.py`) and templates instead of
+having them written from scratch each time.
 
 ## Hubs (start here)
 

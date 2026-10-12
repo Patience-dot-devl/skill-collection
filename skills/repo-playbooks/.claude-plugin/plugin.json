@@ -1,0 +1,8 @@
+{
+  "name": "repo-playbooks",
+  "version": "1.0.0",
+  "description": "Set up and maintain repositories the same way every time: a standard knowledge layout with a convention checker, repo and documentation maintenance rules, and plain Simplified Technical English explanations.",
+  "author": {
+    "name": "Patience-dot-devl"
+  }
+}
