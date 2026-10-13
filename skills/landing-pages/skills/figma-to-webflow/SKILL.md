@@ -8,6 +8,7 @@ description: >-
   (not a copy-paste fragment). Triggers: "build this Figma in Webflow",
   "Figma to Webflow", "implement this design in Webflow", a figma.com URL +
   a Webflow site, "recreate this in my Webflow project".
+disable-model-invocation: true
 ---
 
 # Figma → Webflow

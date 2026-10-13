@@ -39,5 +39,6 @@ another document. "Last checked" is the date the commit and licence were read fr
 
 | What | Where | Owner | How to read it | Last checked | Status |
 |---|---|---|---|---|---|
+| gocrawl (recommended SEO MCP server) | [Patience-dot-devl/gocrawl](https://github.com/Patience-dot-devl/gocrawl) | Patience-dot-devl | `gh api repos/Patience-dot-devl/gocrawl` and its `README.md`; installed with `go install ...@latest`, so it is not pinned here | 2026-10-13 | live, v0.6.0, MIT |
 | Plugin and marketplace schema | `claude plugin validate .` and `claude plugin validate skills/<plugin>` | Anthropic (Claude Code CLI) | Run the command; it prints pass or the failing field | 2026-10-13 | live |
 | Star counts and "actively maintained" claims in `README.md` | GitHub repository pages | each upstream | Open the repo; figures change daily | TBD | to confirm |

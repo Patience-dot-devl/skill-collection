@@ -8,6 +8,8 @@ Checks every tracked Markdown file (or every Markdown file, outside git) for:
   frontmatter  required keys present; `updated` and other date keys in YYYY-MM-DD;
                `depends_on` entries that point at files that exist
   dates        dates in file names in YYYY-MM-DD form
+  skills       SKILL.md files written here: name equals folder, description is valid
+               YAML, body under 500 lines
   secrets      likely credentials in any tracked text file
 
 Exits 1 when anything fails, so it can gate a commit:
@@ -193,6 +195,30 @@ def check_frontmatter(path, text, errors):
             errors.append(f"{relative}: depends_on target does not exist: {dependency}")
 
 
+def check_skill(path, text, errors):
+    """SKILL.md written in this repo: valid frontmatter, a usable description, a short body."""
+    relative = path.relative_to(ROOT)
+    match = re.match(r"^---\n(.*?)\n---\n(.*)$", text, re.S)
+    if not match:
+        errors.append(f"{relative}: SKILL.md has no frontmatter")
+        return
+    head, body = match.groups()
+    name = re.search(r"^name:\s*(\S+)\s*$", head, re.M)
+    description = re.search(r"^description:[ \t]*(.*)$", head, re.M)
+    if not name or name.group(1).strip("'\"") != path.parent.name:
+        errors.append(f"{relative}: frontmatter 'name' must equal the folder name '{path.parent.name}'")
+    if not description:
+        errors.append(f"{relative}: frontmatter 'description' is missing")
+    else:
+        value = description.group(1).strip()
+        if value and value[0] not in "\"'>|" and re.search(r":\s|\s#", value):
+            errors.append(f"{relative}: unquoted description contains ': ' or ' #', which is invalid YAML; "
+                          "quote it or use a '>-' block")
+    if len(body.splitlines()) > 500:
+        errors.append(f"{relative}: SKILL.md body is {len(body.splitlines())} lines, keep it under 500 "
+                      "and move detail to references/")
+
+
 def check_name_date(path, errors):
     match = DATE_LIKE_NAME.search(path.stem)
     if not match:
@@ -228,6 +254,8 @@ def main():
         text = path.read_text(encoding="utf-8", errors="replace")
         check_links(path, strip_code(text), errors)
         check_frontmatter(path, text, errors)
+        if path.name == "SKILL.md":
+            check_skill(path, text, errors)
     for path in files:
         if not is_vendored(path):
             check_name_date(path, errors)

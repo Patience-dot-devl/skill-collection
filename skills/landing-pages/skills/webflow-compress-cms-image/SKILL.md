@@ -1,6 +1,7 @@
 ---
 name: webflow-mcp:compress-cms-image
 description: Compress and convert CMS item image fields to webp or avif in a Webflow collection. Prompts for collection ID, item ID, image fields, quality, and target format, then downloads, converts, re-uploads via presigned S3, and publishes the updated item.
+disable-model-invocation: true
 ---
 
 # Webflow CMS Image Compression
