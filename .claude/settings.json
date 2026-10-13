@@ -1,0 +1,10 @@
+{
+  "extraKnownMarketplaces": {
+    "skill-collection": {
+      "source": { "source": "github", "repo": "Patience-dot-devl/skill-collection" }
+    }
+  },
+  "enabledPlugins": {
+    "repo-playbooks@skill-collection": true
+  }
+}

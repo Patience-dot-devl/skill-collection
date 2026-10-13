@@ -25,11 +25,22 @@ claude plugin install landing-pages@skill-collection
 
 The repository is public, so no access setup is needed.
 
+## Repository layout
+
+| Path | Contents |
+|---|---|
+| [`skills/`](skills/) | The plugins listed above |
+| [`docs/`](docs/) | Curated documents, starting with the [skills evaluation](docs/SKILLS_EVALUATION.md) |
+| [`foundation/data-sources.md`](foundation/data-sources.md) | Upstream sources, pinned commits and licences |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to vendor a skill, document conventions, pre-commit check |
+
+Run `python3 scripts/check.py` before every commit. It checks links, frontmatter, dates and secrets.
+
 ## Vendored skills
 
 Four of the skills below were verified, pulled in as actual files, and evaluated against the skills
 this environment (Claude Code + Conductor) already ships built-in — see
-**[SKILLS_EVALUATION.md](SKILLS_EVALUATION.md)** for the full gap analysis (what's redundant, what's
+**[docs/SKILLS_EVALUATION.md](docs/SKILLS_EVALUATION.md)** for the full gap analysis (what's redundant, what's
 complementary, what needs adapting). Three of them (`pypict`, `ffuf`, `webapp-testing`) now ship in
 the `dev-tools` plugin. Superpowers (13 skills) stays in
 **[skills/vendored/](skills/vendored/)** for reference; install it from

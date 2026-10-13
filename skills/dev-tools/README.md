@@ -1,7 +1,7 @@
 # dev-tools
 
 Three development skills that fill gaps in Claude Code's built-in set. Vendored unchanged from
-their sources; see [SKILLS_EVALUATION.md](../../SKILLS_EVALUATION.md) for why each was chosen.
+their sources; see [docs/SKILLS_EVALUATION.md](../../docs/SKILLS_EVALUATION.md) for why each was chosen.
 
 | Skill | Source | License | Needs |
 |---|---|---|---|
