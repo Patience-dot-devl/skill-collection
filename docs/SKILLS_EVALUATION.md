@@ -1,3 +1,11 @@
+---
+title: Evaluation of vendored skills against the current workflow
+status: live
+updated: 2026-10-13
+depends_on:
+  - ../foundation/data-sources.md
+---
+
 # Evaluation: vendored skills vs. our current workflow
 
 This repo's environment (Claude Code inside Conductor) already ships a set of built-in skills:
@@ -9,7 +17,7 @@ those.
 
 Of the ~30 skills in the source post, four passed verification (real repo, actively maintained,
 concrete SKILL.md) *and* fill a gap in that built-in set well enough to vendor into
-[`skills/vendored/`](skills/vendored/). Everything else is documented in `README.md` as a link-only
+[`skills/vendored/`](../skills/vendored/). Everything else is documented in [`README.md`](../README.md) as a link-only
 reference — either it overlaps with what we already have, is a full application rather than a
 drop-in skill, or its quality/maintenance couldn't be confirmed.
 

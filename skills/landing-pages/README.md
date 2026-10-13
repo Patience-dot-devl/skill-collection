@@ -3,7 +3,7 @@
 Fifteen skills for building and optimizing landing pages: web design and UX, conversion
 optimization, Core Web Vitals (including CrUX field data) and CMS-specific workflows for Webflow,
 Sanity and Contentful. Vendored from their sources; see
-[SKILLS_EVALUATION.md](../../SKILLS_EVALUATION.md) for why each was chosen.
+[docs/SKILLS_EVALUATION.md](../../docs/SKILLS_EVALUATION.md) for why each was chosen.
 
 There is no single skill that covers "optimized landing pages on any CMS". These split by job:
 design and UX first, then conversion and measurement, then the CMS layer.
@@ -71,6 +71,7 @@ Each upstream licence text is in [`licenses/`](licenses/).
 | `contentful-personalization` | 30 files and 1.3 MB with a runnable script; install from [contentful/skills](https://github.com/contentful/skills) when needed. |
 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) other skills (`design`, `brand`, `slides`, …) | Out of scope for landing pages. |
 | Squarespace, Wix, Framer, HubSpot CMS, Drupal, Storyblok | No first-party skills found. |
+| `accessibility`, `seo`, `best-practices` from web-quality-skills | `web-quality-audit` links to these three sibling skills (`../accessibility/SKILL.md` and so on), which are not vendored here, so those links do not resolve. `marketing:page-audit` covers WCAG and SEO per URL. Vendor them if you want the full audit set. |
 
 Shopify is covered by Shopify's own toolkit
 ([Shopify/Shopify-AI-Toolkit](https://github.com/Shopify/Shopify-AI-Toolkit), MIT), so it is not
