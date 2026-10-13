@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "skill-collection",
-  "description": "Curated and adapted Claude skills: marketing, repository playbooks and development tools.",
+  "description": "Curated and adapted Claude skills: marketing, landing pages, repository playbooks and development tools.",
   "owner": {
     "name": "Patience-dot-devl",
     "url": "https://github.com/Patience-dot-devl"
@@ -23,6 +23,12 @@
       "name": "dev-tools",
       "description": "Pairwise test design (PICT), ffuf web fuzzing for authorized security testing, and Playwright web app testing.",
       "source": "./skills/dev-tools",
+      "category": "development"
+    },
+    {
+      "name": "landing-pages",
+      "description": "Landing pages on Webflow, Sanity, Contentful and Next.js: web design and UX, conversion optimization, Core Web Vitals (CrUX) and CMS-specific workflows.",
+      "source": "./skills/landing-pages",
       "category": "development"
     }
   ]

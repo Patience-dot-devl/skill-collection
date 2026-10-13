@@ -80,6 +80,28 @@ research, content gaps, competitor benchmarks), `page-audit` goes deep on one UR
 extraction, GEO, WCAG, ready-to-use JSON-LD). Not yet run through an eval loop against a no-skill
 baseline.
 
+## Landing-pages plugin (`skills/landing-pages/`)
+
+Fifteen skills from six upstream repos, chosen to cover design, conversion, measurement and the CMS
+layer for landing pages. No single upstream skill spans CMSs, so the plugin groups by job.
+
+| Group | Skills | Gap it fills |
+|---|---|---|
+| Design and UX | `ui-ux-pro-max` | Nothing built-in gives searchable style, palette, font, UX-rule and landing-page-pattern data. Overlaps partly with the installed `frontend-design`, which sets aesthetic direction but has no lookup data. |
+| Conversion | `cro`, `ab-testing`, `copywriting`, `content-experimentation-best-practices` | `marketing:page-audit` and `seo-audit` cover SEO, GEO and WCAG; none cover CRO, test design or sample size. |
+| Performance and CrUX | `core-web-vitals`, `performance`, `web-quality-audit`, `seo-aeo-best-practices` | `page-audit` reads one page's source; these add field-data (CrUX p75) triage and lab-vs-field reasoning. They reuse the Chrome DevTools and Search Console MCP servers already in the `marketing` plugin. |
+| CMS | Webflow (5), `contentful-nextjs` | Webflow's official skills drive its MCP server. Contentful's covers Next.js preview and Draft Mode. |
+
+Held back or excluded (details in the plugin README): WordPress/agent-skills (GPL-2.0-or-later,
+deliberately not vendored; install from upstream), Respira WordPress skills (require the Respira plugin and MCP server),
+Vercel `web-design-guidelines` (no upstream LICENSE file; fetches unpinned rules at run time),
+`contentful-personalization` (large, ships a script).
+
+One edit to vendored files: `ui-ux-pro-max/SKILL.md` script paths changed from
+`${CLAUDE_PLUGIN_ROOT}/.claude/skills/…` to `${CLAUDE_PLUGIN_ROOT}/skills/…` to match this plugin's
+layout. The `${CLAUDE_PLUGIN_ROOT}` substitution itself was not exercised inside a live Claude Code
+session; the search script was run directly.
+
 ## Important caveat: vendoring ≠ installed
 
 This section applies to what remains in `skills/vendored/` (Superpowers). The `marketing`,

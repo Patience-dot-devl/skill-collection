@@ -1,0 +1,8 @@
+{
+  "name": "landing-pages",
+  "version": "1.0.0",
+  "description": "Build and optimize landing pages on Webflow, Sanity, Contentful and Next.js: web design and UX guidance, conversion optimization, Core Web Vitals (CrUX) and CMS-specific workflows.",
+  "author": {
+    "name": "Patience-dot-devl"
+  }
+}
