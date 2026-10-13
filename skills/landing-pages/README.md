@@ -37,6 +37,12 @@ design and UX first, then conversion and measurement, then the CMS layer.
 The `marketing` plugin in this marketplace already bundles the Chrome DevTools, Google Analytics and
 Search Console MCP servers that `core-web-vitals` and `performance` use for CrUX and lab data.
 
+For site-wide checks, run [gocrawl](https://github.com/Patience-dot-devl/gocrawl), the SEO MCP
+server this collection recommends (see the [root README](../../README.md#recommended-mcp-tool-gocrawl)).
+It crawls every page for technical SEO, structured data and lab-mode Core Web Vitals, and the
+skills above then cover the fixes for the pages it flags. Please try it and
+[open an issue](https://github.com/Patience-dot-devl/gocrawl/issues/new) with any feedback.
+
 ### CMS
 
 | Skill | CMS | Source | License | Needs |

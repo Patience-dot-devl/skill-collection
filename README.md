@@ -62,6 +62,44 @@ the plugin README, which also lists every change from upstream.
 
 Do not also install `marketing@knowledge-work-plugins`; the two share skill names.
 
+## Recommended MCP tool: gocrawl
+
+**[gocrawl](https://github.com/Patience-dot-devl/gocrawl)** is the SEO tool this collection
+recommends. It is a free, open-source (MIT) website crawler written in Go that also runs as an MCP
+server (`gocrawl mcp`), so an agent can crawl a whole site and read the results as structured data.
+It is the maintainer's own project, so weigh that accordingly.
+
+- **Whole-site coverage.** Twenty-five analyzers run on every page: technical SEO, redirects,
+  broken links, `robots.txt` and sitemap coverage, structured data, SEA checks (UTM, tracking
+  pixels, landing-page relevance) and AI-search checks (AEO and GEO).
+- **Lab-mode Core Web Vitals** with headless rendering, which complements the CrUX field data the
+  `landing-pages` skills read.
+- **Reports and tracking.** JSON, CSV or self-contained HTML, plus saved crawls and a `compare`
+  command that shows which issues are new and which are resolved between two crawls.
+- **One binary, no runtime dependencies.** `go install` and put it on your `PATH`.
+
+It pairs with `page-audit`: gocrawl finds the pages and issues across a site, and `page-audit`
+goes deep on one URL. The `marketing` plugin already wires it up as an MCP server; setup is in
+[`skills/marketing/README.md`](skills/marketing/README.md).
+
+### Try it and tell us what breaks
+
+We would like you to try it on a real site. It is young (v0.6.0, under active development), and the
+most useful thing you can do is run it and report what you find:
+
+1. Install it: `go install github.com/Patience-dot-devl/gocrawl/cmd/gocrawl@latest` (Go 1.27 or
+   later; Chrome or Chromium only if you want headless rendering).
+2. Crawl a site you know well: `gocrawl crawl https://your-site.example --format html --out report.html`.
+3. **[Open an issue](https://github.com/Patience-dot-devl/gocrawl/issues/new)** for anything wrong:
+   a false positive, a missed problem, a crash, a confusing flag or a missing analyzer. Include the
+   command you ran and what you expected.
+4. Tell us what is missing, even if nothing is broken: which checks you rely on in other tools, and
+   which reports you would hand to a client. Feedback on the MCP tools (`crawl`, `list_analyzers`)
+   is especially welcome, since that is the part agents use.
+
+Contributions follow the repository's
+[CONTRIBUTING.md](https://github.com/Patience-dot-devl/gocrawl/blob/main/CONTRIBUTING.md).
+
 ## Repository playbooks
 
 **[skills/repo-playbooks/](skills/repo-playbooks/)** turns four JSON playbooks (`setup-repo`,

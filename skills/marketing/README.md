@@ -119,6 +119,9 @@ go install github.com/Patience-dot-devl/gocrawl/cmd/gocrawl@latest
 
 The `gocrawl` binary must be on your `PATH`. Headless rendering also needs Chrome or Chromium.
 
+gocrawl is young. If you try it, please [open an issue](https://github.com/Patience-dot-devl/gocrawl/issues/new)
+for anything that is wrong or missing, and say which analyzers you would like to see.
+
 **Chrome DevTools**
 
 Needs Node.js (`npx`) and Google Chrome. Chrome starts on the first browser call, not with the
