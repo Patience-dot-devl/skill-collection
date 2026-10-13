@@ -1,6 +1,7 @@
 ---
 name: page-audit
-description: Audit one web page from its URL for SEO, GEO / AI-search visibility, WCAG accessibility, structured data and content quality, then turn the findings into concrete fixes. Use whenever the user gives a single URL to analyse, score, check or improve: an SEO quickscan, search intent, JSON-LD review, WCAG check, GEO score, citability, E-E-A-T, new title tags and meta descriptions, an FAQ, topical gaps, snippet or AI Overview opportunities, internal links and anchors, alt texts, a content refresh brief, SERP competition, or a prioritised action list. Also for Dutch requests such as "analyseer deze URL", "SEO-quickscan", "zoekintentie", "toegankelijkheid" or "citeerbaarheid". For a site-wide audit, keyword research or competitor benchmarking across domains, use seo-audit instead.
+description: >-
+  Audit one web page from its URL for SEO, GEO / AI-search visibility, WCAG accessibility, structured data and content quality, then turn the findings into concrete fixes. Use whenever the user gives a single URL to analyse, score, check or improve: an SEO quickscan, search intent, JSON-LD review, WCAG check, GEO score, citability, E-E-A-T, new title tags and meta descriptions, an FAQ, topical gaps, snippet or AI Overview opportunities, internal links and anchors, alt texts, a content refresh brief, SERP competition, or a prioritised action list. Also for Dutch requests such as "analyseer deze URL", "SEO-quickscan", "zoekintentie", "toegankelijkheid" or "citeerbaarheid". For a site-wide audit, keyword research or competitor benchmarking across domains, use seo-audit instead.
 ---
 
 # Page audit

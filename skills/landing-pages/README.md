@@ -53,8 +53,12 @@ but are CMS-agnostic. They work on any stack.
 
 ## Changes from upstream
 
-Files are unchanged except one edit:
+Files are unchanged except these edits:
 
+- `webflow-compress-cms-image/SKILL.md` and `figma-to-webflow/SKILL.md`: added
+  `disable-model-invocation: true`. Both change a live Webflow site (re-upload and publish images,
+  build elements), so they run only when you invoke them by name. Remove the line to let Claude
+  trigger them.
 - `ui-ux-pro-max/SKILL.md`: the 11 script paths `${CLAUDE_PLUGIN_ROOT}/.claude/skills/ui-ux-pro-max/…`
   now read `${CLAUDE_PLUGIN_ROOT}/skills/ui-ux-pro-max/…`, because this plugin keeps skills under
   `skills/` and not `.claude/skills/`. The search script was run directly and works.

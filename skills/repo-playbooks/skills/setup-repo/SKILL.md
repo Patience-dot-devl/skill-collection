@@ -1,6 +1,7 @@
 ---
 name: setup-repo
 description: Scaffold a new repository, or standardize an existing one, into a contract-driven knowledge layout with _inbox/, foundation/, sources/, templates/, a scripts/check.py convention checker, AGENTS.md, CLAUDE.md, CONTRIBUTING.md and README.md, plus project settings that enable the repo-playbooks plugin for everyone who works in it. Use when the user says "setup-repo", asks to set up, bootstrap, scaffold or initialise a repo or workspace, or wants an existing repo brought in line with the standard layout.
+disable-model-invocation: true
 ---
 
 # Set up a repository

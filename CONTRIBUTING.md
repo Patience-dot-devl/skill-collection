@@ -28,6 +28,22 @@ The conventions for this repository. [AGENTS.md](AGENTS.md) is the short version
 6. Add a section to [`docs/SKILLS_EVALUATION.md`](docs/SKILLS_EVALUATION.md) saying what gap it fills
    and what was left out.
 
+## Writing skills
+
+Applies to skills written or forked here. Vendored skills stay as received.
+
+- **Frontmatter is valid YAML.** `name` equals the folder name (lowercase letters, digits, hyphens).
+  `description` is quoted or a `>-` block when it contains `: ` or quotes. The check enforces this.
+- **The description says what and when**, in the third person, under 1024 characters. It is the only
+  part that is always in context, so keep it short and put trigger phrases in it, not the workflow.
+- **The body is a lean overview**, under 500 lines. Detail goes in `references/` files linked
+  directly from `SKILL.md`, one level deep. Do not `@`-import them and do not run shell at load time;
+  the body and references then cost nothing until the skill is called.
+- **Skills with side effects are user-only.** Add `disable-model-invocation: true` to anything that
+  writes files, publishes, deploys or probes a live target. Its description then stays out of
+  context until you invoke it by name.
+- Pure background knowledge that is not a command can use `user-invocable: false`.
+
 ## Documents
 
 - Documents in `docs/` and `foundation/` start with frontmatter: `title`, `status` (`draft`, `live`
