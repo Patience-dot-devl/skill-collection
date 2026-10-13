@@ -13,6 +13,7 @@ claude plugin marketplace add Patience-dot-devl/skill-collection
 claude plugin install marketing@skill-collection
 claude plugin install repo-playbooks@skill-collection
 claude plugin install dev-tools@skill-collection
+claude plugin install landing-pages@skill-collection
 ```
 
 | Plugin | Skills |
@@ -20,8 +21,9 @@ claude plugin install dev-tools@skill-collection
 | [`marketing`](skills/marketing/) | Anthropic's marketing plugin plus `page-audit` (see below) |
 | [`repo-playbooks`](skills/repo-playbooks/) | `setup-repo`, `repo-maintainer`, `knowledge-maintainer`, `explain-plane` |
 | [`dev-tools`](skills/dev-tools/) | `pict-test-designer`, `ffuf-web-fuzzing`, `webapp-testing` |
+| [`landing-pages`](skills/landing-pages/) | `ui-ux-pro-max`, `cro`, `ab-testing`, `copywriting`, `core-web-vitals`, `performance`, `web-quality-audit`, `seo-aeo-best-practices`, `content-experimentation-best-practices`, plus Webflow and Contentful skills |
 
-The repository is private, so installing needs access to it.
+The repository is public, so no access setup is needed.
 
 ## Vendored skills
 
