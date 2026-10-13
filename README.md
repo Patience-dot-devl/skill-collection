@@ -84,7 +84,7 @@ goes deep on one URL. The `marketing` plugin already wires it up as an MCP serve
 
 ### Try it and tell us what breaks
 
-We would like you to try it on a real site. It is young (v0.6.0, under active development), and the
+We would like you to try it on a real site. It is young (under active development), and the
 most useful thing you can do is run it and report what you find:
 
 1. Install it: `go install github.com/Patience-dot-devl/gocrawl/cmd/gocrawl@latest` (Go 1.27 or
@@ -103,10 +103,7 @@ Contributions follow the repository's
 ## Repository playbooks
 
 **[skills/repo-playbooks/](skills/repo-playbooks/)** turns four JSON playbooks (`setup-repo`,
-`repo-maintainer`, `knowledge-maintainer`, `explain-plane`) into skills. The JSON versions lived in
-`~/.claude/plugins/global-playbooks/` without a plugin manifest, so Claude Code never loaded them.
-`setup-repo` ships a tested convention checker (`scripts/check.py`) and templates instead of
-having them written from scratch each time.
+`repo-maintainer`, `knowledge-maintainer`, `explain-plane`) into skills. 
 
 ## Hubs (start here)
 
