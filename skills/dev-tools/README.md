@@ -6,7 +6,7 @@ their sources; see [SKILLS_EVALUATION.md](../../SKILLS_EVALUATION.md) for why ea
 | Skill | Source | License | Needs |
 |---|---|---|---|
 | `pict-test-designer` (`skills/pypict/`) | [omkamal/pypict-claude-skill](https://github.com/omkamal/pypict-claude-skill), commit `fbda212` | MIT (`LICENSE`) | `pict` CLI or the `pypict` Python package |
-| `ffuf-web-fuzzing` (`skills/ffuf/`) | [jthack/ffuf_claude_skill](https://github.com/jthack/ffuf_claude_skill), commit `50fd4af` | MIT per its README; no license file upstream | `ffuf` binary. Only for targets you are authorised to test |
+| `ffuf-web-fuzzing` (`skills/ffuf/`) | [jthack/ffuf_claude_skill](https://github.com/jthack/ffuf_claude_skill), commit `50fd4af` | MIT per upstream README; no license file upstream, see [`NOTICE.md`](skills/ffuf/NOTICE.md) | `ffuf` binary. Only for targets you are authorised to test |
 | `webapp-testing` (`skills/webapp-testing/`) | [anthropics/skills](https://github.com/anthropics/skills), commit `9d2f1ae` | Apache-2.0 (`LICENSE.txt`) | Python Playwright |
 
 Superpowers is not included: install it from the official marketplace
