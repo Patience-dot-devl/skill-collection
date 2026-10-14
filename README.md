@@ -42,7 +42,7 @@ Four of the skills below were verified, pulled in as actual files, and evaluated
 this environment (Claude Code + Conductor) already ships built-in — see
 **[docs/SKILLS_EVALUATION.md](docs/SKILLS_EVALUATION.md)** for the full gap analysis (what's redundant, what's
 complementary, what needs adapting). Three of them (`pypict`, `ffuf`, `webapp-testing`) now ship in
-the `dev-tools` plugin. Superpowers (13 skills) stays in
+the `dev-tools` plugin. Superpowers (15 skills) stays in
 **[skills/vendored/](skills/vendored/)** for reference; install it from
 `superpowers@claude-plugins-official` instead.
 

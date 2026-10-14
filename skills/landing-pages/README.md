@@ -20,7 +20,7 @@ design and UX first, then conversion and measurement, then the CMS layer.
 
 | Skill | Source | License | Needs |
 |---|---|---|---|
-| `cro` | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills), commit `28e4a81` | MIT | Nothing. Reads `.agents/product-marketing.md` if present |
+| `cro` | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills), commit `c7d7dfb` | MIT | Nothing. Reads `.agents/product-marketing.md` if present |
 | `ab-testing` | same | MIT | same |
 | `copywriting` | same | MIT | same |
 | `content-experimentation-best-practices` | [sanity-io/agent-toolkit](https://github.com/sanity-io/agent-toolkit), commit `feb9d38` | MIT | Nothing |
@@ -52,7 +52,7 @@ skills above then cover the fixes for the pages it flags. Please try it and
 | `accessibility-audit` | Webflow | same | MIT | Webflow MCP |
 | `asset-audit` | Webflow | same | MIT | Webflow MCP |
 | `webflow-compress-cms-image` | Webflow | same | MIT | Webflow MCP |
-| `contentful-nextjs` | Contentful | [contentful/skills](https://github.com/contentful/skills), commit `4524f53` | MIT | Next.js project |
+| `contentful-nextjs` | Contentful | [contentful/skills](https://github.com/contentful/skills), commit `9100f17` | MIT | Next.js project |
 
 `seo-aeo-best-practices` and `content-experimentation-best-practices` come from the Sanity toolkit
 but are CMS-agnostic. They work on any stack.
