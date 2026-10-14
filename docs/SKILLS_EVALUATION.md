@@ -1,7 +1,7 @@
 ---
 title: Evaluation of vendored skills against the current workflow
 status: live
-updated: 2026-10-13
+updated: 2026-10-14
 depends_on:
   - ../foundation/data-sources.md
 ---
@@ -26,7 +26,7 @@ drop-in skill, or its quality/maintenance couldn't be confirmed.
 `pypict`, `ffuf` and `webapp-testing` moved to `skills/dev-tools/skills/` so they can be installed
 as the `dev-tools` plugin; their files are unchanged. Superpowers stays here as a reference copy.
 
-### `superpowers/` — 13 skills from obra/superpowers (MIT, commit `d884ae0`)
+### `superpowers/` — 15 skills from obra/superpowers (MIT, commit `bb92a77`, v7.0.0)
 
 | Skill | Fills a gap? | Notes |
 |---|---|---|
@@ -39,6 +39,7 @@ as the `dev-tools` plugin; their files are unchanged. Superpowers stays here as 
 | `finishing-a-development-branch` | Yes | No built-in "how should this land" decision checklist; complements the PR-creation guidance already in our instructions rather than replacing it. |
 | `requesting-code-review` / `receiving-code-review` | Partial overlap | Conductor's `code-review`/`review` skills *perform* a review; these two govern the *process* of asking for and responding to feedback. Complementary, not duplicate. |
 | `verification-before-completion` | Partial overlap | Conductor's `verify` skill already exists for this; this skill is a stricter behavioral rule ("evidence before claims") rather than a runner. Worth keeping as a discipline reminder. |
+| `diagnosing-superpowers` | **No** | New in v7.0.0. Builds bug reports for the Superpowers maintainers from session transcripts. Useful only if you run the full Superpowers framework; not a general workflow skill. Kept for reference only. |
 | `using-superpowers` | **Do not use as-is** | This is a bootstrap skill that assumes Superpowers' own slash-command dispatcher and forces skill-invocation-before-any-response. That model conflicts with how Claude Code/Conductor already discovers and invokes skills here — installing it verbatim would fight the existing Skill/ToolSearch mechanism. Kept for reference only. |
 | `writing-skills` | **Redundant** | The `skill-creator` plugin already installed locally (`~/.claude/plugins/marketplaces/claude-plugins-official/plugins/skill-creator`) covers this same job in this exact environment. |
 
