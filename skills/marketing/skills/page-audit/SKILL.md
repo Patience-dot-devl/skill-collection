@@ -31,7 +31,7 @@ Connected tools are named by category, as described in
 [CONNECTORS.md](../../CONNECTORS.md). Use them when they are connected; every mode
 still works without them.
 
-- **~~site crawler** (gocrawl): call its `crawl` tool on the URL with
+- **~~site crawler** (gocrawl): call its `gocrawl:crawl` tool on the URL with
   `max_pages: 1` and treat the issue codes it returns as evidence alongside the
   extractor output. With `render: headless` it also measures Core Web Vitals.
 - **~~SEO** (Search Console): the real queries, clicks, impressions, CTR and
