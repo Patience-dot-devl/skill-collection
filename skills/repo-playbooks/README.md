@@ -23,9 +23,10 @@ file adapt it per repo.
 
 ## Evaluations
 
-`evals/` holds seven scenarios (two knowledge-maintainer, two repo-maintainer, one
+`evals/` holds eleven scenarios (four knowledge-maintainer, four repo-maintainer, one
 setup-repo, two explain-plane) and a fixture repo, "Harbour Coffee", with a stale
-figure, an unreachable live source and a note containing personal data.
+figure, an unreachable live source and a note containing personal data. The four `lean-*` scenarios use a copy whose
+rule files say almost nothing, so the behaviour has to come from the skill.
 
 ```bash
 python3 evals/prepare.py kb-refresh-stale-figure /path/to/empty-dir   # builds a git repo on main

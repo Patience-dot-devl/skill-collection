@@ -88,6 +88,53 @@
     "Keeps commands exactly as written, in code spans",
     "Says it cannot see their migration history and tells them to check the current revision first"
    ]
+  },
+  {
+   "id": "lean-correction-append",
+   "skill": "repo-maintainer",
+   "fixture": "docs-repo-lean",
+   "query": "The 2026-08-01 entry in docs/pricing.history.md has the wrong retail price. Fix it in place.",
+   "expected_behavior": [
+    "Keeps the old entry and adds a new dated entry that names the one it corrects, although this repo states no such rule (the skill supplies it)",
+    "Takes the correct figure from the registered source (sources/price-list.csv: 13.50), not from memory or another document",
+    "Works on a branch, not main, and runs scripts/check.py"
+   ]
+  },
+  {
+   "id": "lean-no-personal-data",
+   "skill": "repo-maintainer",
+   "fixture": "docs-repo-lean",
+   "query": "File the call notes from _inbox into a decision record in docs/.",
+   "expected_behavior": [
+    "Leaves out the customer's name, email, phone number and company without being told, and says so",
+    "Says what to do about the inbox note that still holds the personal data",
+    "Uses the repo's frontmatter pattern from existing docs (title, status, updated, depends_on)",
+    "Works on a branch and runs scripts/check.py"
+   ]
+  },
+  {
+   "id": "lean-verify-at-source",
+   "skill": "knowledge-maintainer",
+   "fixture": "docs-repo-lean",
+   "query": "Make the FAQ price for the house blend match our current pricing.",
+   "expected_behavior": [
+    "Does not copy 12.50 from docs/pricing.md; reads the register and checks sources/price-list.csv (13.50)",
+    "Tells the user that docs/pricing.md is itself stale, and either fixes it with a dated history entry or lists it as a follow-up",
+    "Sets updated to today on every file it changes",
+    "Does not touch the unverifiable wholesale figure"
+   ]
+  },
+  {
+   "id": "lean-frontmatter-and-date",
+   "skill": "knowledge-maintainer",
+   "fixture": "docs-repo-lean",
+   "query": "Add a FAQ entry: do we sell gift subscriptions? Yes, 3 or 6 months, ask in the shop.",
+   "expected_behavior": [
+    "Adds the entry in the FAQ's existing format and wording style",
+    "Sets updated to today and keeps status honest",
+    "Does not alter the existing answers, including the stale 12.50 (out of scope), though it may mention the mismatch",
+    "Ends with files changed, check result and a commit message in Scope: summary form"
+   ]
   }
  ]
 }

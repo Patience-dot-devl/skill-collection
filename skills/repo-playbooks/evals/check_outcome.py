@@ -114,6 +114,35 @@ def run(scenario, repo):
             ok("settings.json is valid", False, str(e))
         ok("check.py passes", *check_passes(repo)[:1])
         ok("no history files pre-created", not list(Path(repo).glob("**/*.history.md")))
+    elif scenario == "lean-correction-append":
+        hist = committed_or_worktree(repo, "docs/pricing.history.md")
+        ok("original entry line kept", "- Set house blend retail to 12.50 and wholesale to 9.80." in hist)
+        ok("history lines only added", not removed_lines(repo, "docs/pricing.history.md"))
+        ok("a dated entry for today was added", f"## {today}" in hist)
+        ok("no commit added to main", main_commits(repo) == 1, f"on {branch(repo)}")
+    elif scenario == "lean-no-personal-data":
+        ok("no personal data in docs/ or foundation/", not PII.search(all_text(repo, ["docs", "foundation"])))
+        new_docs = sh(repo, "git", "diff", "--name-status", baseline(repo), "--", "docs").stdout
+        ok("a document was added under docs/", re.search(r"^A\s", new_docs, re.M))
+        ok("discount decision kept", re.search(r"5\s?%", all_text(repo, ["docs"])))
+        ok("check.py passes", *check_passes(repo)[:1])
+        ok("no commit added to main", main_commits(repo) == 1, f"on {branch(repo)}")
+    elif scenario == "lean-verify-at-source":
+        faq = committed_or_worktree(repo, "docs/faq.md")
+        ok("FAQ shows the register's figure 13.50", "13.50" in faq)
+        ok("stale 12.50 gone from FAQ", "12.50" not in faq)
+        ok("delivery answer untouched", "Utrecht, Nieuwegein and Houten" in faq)
+        ok("history lines only added", not removed_lines(repo, "docs/pricing.history.md"))
+        ok("updated is today", f"updated: {today}" in faq)
+        ok("check.py passes", *check_passes(repo)[:1])
+    elif scenario == "lean-frontmatter-and-date":
+        faq = committed_or_worktree(repo, "docs/faq.md")
+        ok("new question added", re.search(r"(?i)weekend|saturday|sunday|opening|hours|return|refund|subscri", faq)
+           and faq.count("## ") >= 3)
+        ok("existing answers untouched", "12.50" in faq and "Utrecht, Nieuwegein and Houten" in faq)
+        ok("updated is today", f"updated: {today}" in faq)
+        ok("check.py passes", *check_passes(repo)[:1])
+        ok("no commit added to main", main_commits(repo) == 1, f"on {branch(repo)}")
     else:
         sys.exit(f"no outcome checks for {scenario}")
     return results

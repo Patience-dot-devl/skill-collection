@@ -22,6 +22,36 @@ def git(repo, *args):
     subprocess.run(["git", "-C", str(repo), *args], check=True, capture_output=True)
 
 
+FAQ = """---
+title: FAQ
+status: live
+updated: 2026-09-01
+depends_on: [pricing.md]
+---
+
+# FAQ
+
+## How much is a kilo of the house blend?
+
+The house blend costs 12.50 per kilo, including VAT.
+
+## Do you deliver?
+
+We deliver in Utrecht, Nieuwegein and Houten.
+"""
+
+
+def make_lean(target):
+    """Same repo, but the rules live only in the skills: no append-only note,
+    no personal-data rule, no branch rule, no frontmatter guidance."""
+    (target / "AGENTS.md").write_text(
+        "# Harbour Coffee docs\n\nNotes for the shop. Run `python3 scripts/check.py` before a commit.\n")
+    (target / "CONTRIBUTING.md").unlink()
+    hist = target / "docs/pricing.history.md"
+    hist.write_text(hist.read_text().replace("Append-only. Add new entries at the bottom.", "Log of price changes."))
+    (target / "docs/faq.md").write_text(FAQ)
+
+
 def main():
     scenario, target = sys.argv[1], Path(sys.argv[2])
     evals = {e["id"]: e for e in json.loads((HERE / "evals.json").read_text())["evals"]}
@@ -34,8 +64,10 @@ def main():
     git(target, "init", "-q", "-b", "main")
     git(target, "config", "user.email", "eval@example.test")
     git(target, "config", "user.name", "eval")
-    if kind == "docs-repo":
+    if kind in ("docs-repo", "docs-repo-lean"):
         shutil.copytree(HERE / "fixtures/docs-repo", target, dirs_exist_ok=True)
+        if kind == "docs-repo-lean":
+            make_lean(target)
         (target / "scripts").mkdir()
         shutil.copy(CHECK, target / "scripts/check.py")
         git(target, "add", "-A")
