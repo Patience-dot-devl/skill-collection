@@ -30,19 +30,43 @@ The conventions for this repository. [AGENTS.md](AGENTS.md) is the short version
 
 ## Writing skills
 
-Applies to skills written or forked here. Vendored skills stay as received.
+Applies to skills written or forked here. Vendored skills stay as received. These rules follow
+Anthropic's [skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
+and the [Claude Code skills reference](https://code.claude.com/docs/en/skills), as read on
+2026-10-14. Neither page has guidance specific to Claude 5.5; recheck both when they change.
 
-- **Frontmatter is valid YAML.** `name` equals the folder name (lowercase letters, digits, hyphens).
-  `description` is quoted or a `>-` block when it contains `: ` or quotes. The check enforces this.
-- **The description says what and when**, in the third person, under 1024 characters. It is the only
-  part that is always in context, so keep it short and put trigger phrases in it, not the workflow.
-- **The body is a lean overview**, under 500 lines. Detail goes in `references/` files linked
-  directly from `SKILL.md`, one level deep. Do not `@`-import them and do not run shell at load time;
-  the body and references then cost nothing until the skill is called.
-- **Skills with side effects are user-only.** Add `disable-model-invocation: true` to anything that
-  writes files, publishes, deploys or probes a live target. Its description then stays out of
-  context until you invoke it by name.
+- **Frontmatter is valid YAML.** `name` equals the folder name: 1-64 characters, lowercase letters,
+  digits and hyphens, no `anthropic` or `claude`. `description` is quoted or a `>-` block when it
+  contains `: ` or quotes. The check enforces this.
+- **The description says what and when**, in the third person, under 1024 characters (the limit
+  outside Claude Code). In Claude Code the description plus `when_to_use` is cut at 1536 characters
+  in the skill listing, so put the main use case and trigger phrases first. The description is the
+  only part always in context; keep the workflow out of it.
+- **The body is a lean overview**, under 500 lines. Add only what Claude does not already know.
+  Detail goes in `references/` files linked directly from `SKILL.md`, one level deep. A reference
+  file over 100 lines starts with a contents list. Do not `@`-import them and do not run shell at
+  load time (`` !`cmd` ``): a failing command aborts the invocation.
+- **Match instruction strictness to fragility.** Give judgment calls goals and a default; give
+  fragile or destructive sequences an exact command. Offer one default, with an escape hatch, not a
+  menu of tools.
+- **Run bundled scripts through their interpreter** (`python3 scripts/x.py`), never by bare path:
+  some packagers strip executable bits. Scripts handle their own errors and explain every constant.
+- **Name MCP tools with their server** (`gocrawl:crawl`) so the tool is found when several servers
+  are connected.
+- **No dates or "before/after" logic in a skill body.** Put superseded behaviour in an "old
+  patterns" section.
+- **Side-effect skills are user-only.** Add `disable-model-invocation: true` to anything that
+  writes outside the working directory, publishes, deploys or changes a live system. The flag also
+  removes the skill from subagent preloading and scheduled tasks, so do not set it on a skill that
+  is meant to trigger on ordinary requests or run unattended. A read-only fetch is not a side
+  effect.
 - Pure background knowledge that is not a command can use `user-invocable: false`.
+- **Claude Code only.** `disable-model-invocation`, `argument-hint` and `user-invocable` are
+  accepted in Claude Code. Uploading the skill to claude.ai or the Skills API rejects them, so
+  strip them if a skill from here is packaged for upload.
+- **Test before you ship.** Write at least three realistic requests with the behaviour you expect,
+  run them without the skill and with it, and try the skill on more than one model size. No skill
+  in this repository has these evaluations yet.
 
 ## Documents
 
