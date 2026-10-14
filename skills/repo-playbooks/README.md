@@ -21,6 +21,24 @@ required frontmatter keys per folder, YYYY-MM-DD dates in frontmatter and file n
 `depends_on` targets, and likely secrets. It exits 1 on any error. Settings at the top of the
 file adapt it per repo.
 
+## Evaluations
+
+`evals/` holds seven scenarios (two knowledge-maintainer, two repo-maintainer, one
+setup-repo, two explain-plane) and a fixture repo, "Harbour Coffee", with a stale
+figure, an unreachable live source and a note containing personal data.
+
+```bash
+python3 evals/prepare.py kb-refresh-stale-figure /path/to/empty-dir   # builds a git repo on main
+# run the skill (or a baseline without it) in that directory, then:
+python3 evals/check_outcome.py kb-refresh-stale-figure /path/to/empty-dir
+python3 evals/check_ste.py answer.md                                  # explain-plane
+```
+
+The scripts check files and git state; the `expected_behavior` lists in `evals.json`
+cover what a script cannot (honesty about unverified figures, what was left out and
+why). `repo-correction-not-rewrite` passes on an untouched repo by design: it
+guards against a rewrite, so read the final message for the offered correction.
+
 ## Install
 
 ```bash
