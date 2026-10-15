@@ -43,5 +43,7 @@ Run the repo's check (usually `python3 scripts/check.py`) and fix everything it
 reports; the bar is 0 errors. Confirm no history entry was edited or removed:
 `git diff` on history files should show only added lines.
 
+If the repo's rules say not to commit to `main`, make the change on a branch.
+
 End with: files changed, the history entries added, the check result, and a
 commit message in the repo's format.

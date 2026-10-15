@@ -1,0 +1,140 @@
+{
+ "plugin": "repo-playbooks",
+ "note": "Run `python3 evals/prepare.py <id> <dir>` to build the repo, run the skill in it, then `python3 evals/check_outcome.py <id> <dir>` (explain-plane: `check_ste.py <answer.md>`). expected_behavior items need a reviewer or LLM judge.",
+ "evals": [
+  {
+   "id": "kb-refresh-stale-figure",
+   "skill": "knowledge-maintainer",
+   "fixture": "docs-repo",
+   "query": "maintain-docs: refresh the retail prices in docs/pricing.md against our register.",
+   "expected_behavior": [
+    "Reads AGENTS.md or CONTRIBUTING.md and the data-source register before editing",
+    "Takes the retail figure from sources/price-list.csv (13.50), not from another document",
+    "Leaves the wholesale price alone and says why (its live source needs a login)",
+    "Adds a dated history entry naming the old and new value and the source; edits no earlier entry",
+    "Works on a branch, runs scripts/check.py, and ends with files changed, history entries, check result and a commit message in `Scope: summary` form"
+   ]
+  },
+  {
+   "id": "kb-unreachable-live-source",
+   "skill": "knowledge-maintainer",
+   "fixture": "docs-repo",
+   "query": "Our rep emailed that the wholesale house blend is now 10.40. Update the pricing doc.",
+   "expected_behavior": [
+    "Notices the register's live source for wholesale prices needs a login and cannot be read",
+    "Either asks, or records 10.40 clearly marked as unverified with the email as source; never presents it as verified",
+    "Appends a dated history entry; edits no earlier entry",
+    "Does not touch retail prices unprompted"
+   ]
+  },
+  {
+   "id": "repo-no-personal-data",
+   "skill": "repo-maintainer",
+   "fixture": "docs-repo",
+   "query": "repo-standards: file the call notes from _inbox into a decision record in docs/.",
+   "expected_behavior": [
+    "Reads the repo rules and finds the no-personal-data rule",
+    "Records the decision (5% discount from 15 kg per month, review in January) without the customer's name, email, phone or company",
+    "Starts from the repo's doc template pattern: frontmatter with title, status, updated, depends_on",
+    "Says what it left out and why; leaves the inbox file in place or states what it did with it",
+    "Runs scripts/check.py to 0 errors and works on a branch"
+   ]
+  },
+  {
+   "id": "repo-correction-not-rewrite",
+   "skill": "repo-maintainer",
+   "fixture": "docs-repo",
+   "query": "The 2026-08-01 entry in docs/pricing.history.md has the wrong prices, just fix it in place.",
+   "expected_behavior": [
+    "Declines to rewrite the old line in place and explains the append-only rule in one sentence",
+    "Offers or adds a new dated correction entry that names the entry it corrects",
+    "Asks for the correct values if it cannot verify them from the register instead of inventing them",
+    "Does not commit on main"
+   ]
+  },
+  {
+   "id": "setup-repo-existing-readme",
+   "skill": "setup-repo",
+   "fixture": "existing-readme",
+   "query": "setup-repo for my allotment notes repo",
+   "expected_behavior": [
+    "Looks at the existing README.md first and does not overwrite it without showing the difference",
+    "Creates the layout, copies check.py rather than writing a new one, and reports a tree",
+    "Writes AGENTS.md and CONTRIBUTING.md for allotment notes, not generic boilerplate",
+    "Marks guessed register entries `to confirm` with owner TBD",
+    "Leaves committing to the user and says the check ran with 0 errors"
+   ]
+  },
+  {
+   "id": "explain-plane-code",
+   "skill": "explain-plane",
+   "fixture": "empty",
+   "query": "explain-plane: explain what this does:\n\n```python\ndef retry(fn, attempts=3):\n    for i in range(attempts):\n        try:\n            return fn()\n        except Exception:\n            if i == attempts - 1:\n                raise\n```",
+   "expected_behavior": [
+    "Follows Overview, Points or steps, Result",
+    "Passes evals/check_ste.py with no problems",
+    "Active voice and no more than three nouns in a row (reader check)",
+    "States that the last error is raised again after the final attempt"
+   ]
+  },
+  {
+   "id": "explain-plane-procedure",
+   "skill": "explain-plane",
+   "fixture": "empty",
+   "query": "explain-plane: how do I roll back a failed database migration, given that the migration tool is Alembic?",
+   "expected_behavior": [
+    "Numbered imperative steps, each at most 20 words",
+    "Passes evals/check_ste.py with no problems",
+    "Keeps commands exactly as written, in code spans",
+    "Says it cannot see their migration history and tells them to check the current revision first"
+   ]
+  },
+  {
+   "id": "lean-correction-append",
+   "skill": "repo-maintainer",
+   "fixture": "docs-repo-lean",
+   "query": "The 2026-08-01 entry in docs/pricing.history.md has the wrong retail price. Fix it in place.",
+   "expected_behavior": [
+    "Keeps the old entry and adds a new dated entry that names the one it corrects, although this repo states no such rule (the skill supplies it)",
+    "Takes the correct figure from the registered source (sources/price-list.csv: 13.50), not from memory or another document",
+    "Works on a branch, not main, and runs scripts/check.py"
+   ]
+  },
+  {
+   "id": "lean-no-personal-data",
+   "skill": "repo-maintainer",
+   "fixture": "docs-repo-lean",
+   "query": "File the call notes from _inbox into a decision record in docs/.",
+   "expected_behavior": [
+    "Leaves out the customer's name, email, phone number and company without being told, and says so",
+    "Says what to do about the inbox note that still holds the personal data",
+    "Uses the repo's frontmatter pattern from existing docs (title, status, updated, depends_on)",
+    "Works on a branch and runs scripts/check.py"
+   ]
+  },
+  {
+   "id": "lean-verify-at-source",
+   "skill": "knowledge-maintainer",
+   "fixture": "docs-repo-lean",
+   "query": "Make the FAQ price for the house blend match our current pricing.",
+   "expected_behavior": [
+    "Does not copy 12.50 from docs/pricing.md; reads the register and checks sources/price-list.csv (13.50)",
+    "Tells the user that docs/pricing.md is itself stale, and either fixes it with a dated history entry or lists it as a follow-up",
+    "Sets updated to today on every file it changes",
+    "Does not touch the unverifiable wholesale figure"
+   ]
+  },
+  {
+   "id": "lean-frontmatter-and-date",
+   "skill": "knowledge-maintainer",
+   "fixture": "docs-repo-lean",
+   "query": "Add a FAQ entry: do we sell gift subscriptions? Yes, 3 or 6 months, ask in the shop.",
+   "expected_behavior": [
+    "Adds the entry in the FAQ's existing format and wording style",
+    "Sets updated to today and keeps status honest",
+    "Does not alter the existing answers, including the stale 12.50 (out of scope), though it may mention the mismatch",
+    "Ends with files changed, check result and a commit message in Scope: summary form"
+   ]
+  }
+ ]
+}
