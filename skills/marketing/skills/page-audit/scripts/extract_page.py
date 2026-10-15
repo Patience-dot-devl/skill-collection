@@ -439,7 +439,10 @@ def build(page_url, html, response):
             "element_counts": parser.counts,
             "time_elements": parser.time_values,
             "script_count": parser.script_count,
-            "likely_client_rendered": len(words) < 150,
+            # A short page is not a client-rendered one. Flag it only when scripts ship and
+            # almost no text is served, or when a thin page carries many scripts.
+            "likely_client_rendered": parser.script_count >= 1
+            and (len(words) < 30 or (len(words) < 150 and parser.script_count >= 10)),
         },
         "links": links,
         "images": parser.images,

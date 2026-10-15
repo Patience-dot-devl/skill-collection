@@ -166,3 +166,10 @@ Upstream also ships Slack, Canva, Figma, HubSpot, Amplitude, Notion, Ahrefs, Sim
 Supermetrics, Gmail and Google Calendar. They were removed so installing the plugin does not add
 servers that go unused; Ahrefs and Similarweb also need paid plans. To add one back, copy its
 entry from upstream `marketing/.mcp.json`.
+
+## page-audit evaluations
+
+`skills/page-audit/evals/` holds five scenarios (`evals.json`) and four local HTML fixtures, so
+no network is needed. `python3 skills/page-audit/evals/run_extractor_checks.py` runs the
+extractor against the deterministic items. The behaviour items are written for a reviewer or an
+LLM judge and have not been run against a model yet.

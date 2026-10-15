@@ -195,6 +195,18 @@ def check_frontmatter(path, text, errors):
             errors.append(f"{relative}: depends_on target does not exist: {dependency}")
 
 
+def frontmatter_text(head, key):
+    """Text of a top-level frontmatter key: plain, quoted, or a '>' / '|' block."""
+    match = re.search(rf"^{key}:[ \t]*(.*)$((?:\n[ \t]+.*)*)", head, re.M)
+    if not match:
+        return ""
+    first, rest = match.group(1).strip(), match.group(2)
+    if first[:1] in ">|":
+        first = ""
+    parts = [first] + [line.strip() for line in rest.splitlines()]
+    return re.sub(r"\s+", " ", " ".join(p for p in parts if p)).strip("'\" ")
+
+
 def check_skill(path, text, errors):
     """SKILL.md written in this repo: valid frontmatter, a usable description, a short body."""
     relative = path.relative_to(ROOT)
@@ -207,6 +219,10 @@ def check_skill(path, text, errors):
     description = re.search(r"^description:[ \t]*(.*)$", head, re.M)
     if not name or name.group(1).strip("'\"") != path.parent.name:
         errors.append(f"{relative}: frontmatter 'name' must equal the folder name '{path.parent.name}'")
+    elif not re.fullmatch(r"[a-z0-9-]{1,64}", path.parent.name):
+        errors.append(f"{relative}: 'name' must be 1-64 characters of lowercase letters, digits and hyphens")
+    elif any(word in path.parent.name for word in ("anthropic", "claude")):
+        errors.append(f"{relative}: 'name' must not contain the reserved words 'anthropic' or 'claude'")
     if not description:
         errors.append(f"{relative}: frontmatter 'description' is missing")
     else:
@@ -214,6 +230,12 @@ def check_skill(path, text, errors):
         if value and value[0] not in "\"'>|" and re.search(r":\s|\s#", value):
             errors.append(f"{relative}: unquoted description contains ': ' or ' #', which is invalid YAML; "
                           "quote it or use a '>-' block")
+    for key, limit in (("description", 1024), ("description+when_to_use", 1536)):
+        text_value = frontmatter_text(head, "description")
+        if key != "description":
+            text_value += frontmatter_text(head, "when_to_use")
+        if len(text_value) > limit:
+            errors.append(f"{relative}: {key} is {len(text_value)} characters, keep it under {limit}")
     if len(body.splitlines()) > 500:
         errors.append(f"{relative}: SKILL.md body is {len(body.splitlines())} lines, keep it under 500 "
                       "and move detail to references/")

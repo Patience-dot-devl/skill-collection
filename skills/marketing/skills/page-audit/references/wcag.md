@@ -128,7 +128,7 @@ Assess at least:
 Output a table with:
 
 1. WCAG component or success criterion, with its number
-2. Status: goed / twijfel / fout / niet te beoordelen
+2. Status: goed / twijfel / fout / niet te beoordelen (pass / doubt / fail / not assessable when answering in English)
 3. Finding, with the element it concerns
 4. Risk for the user: who is affected and how
 5. Concrete solution, as corrected markup where that helps
