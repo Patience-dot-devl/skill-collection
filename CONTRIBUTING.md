@@ -65,8 +65,10 @@ and the [Claude Code skills reference](https://code.claude.com/docs/en/skills), 
   accepted in Claude Code. Uploading the skill to claude.ai or the Skills API rejects them, so
   strip them if a skill from here is packaged for upload.
 - **Test before you ship.** Write at least three realistic requests with the behaviour you expect,
-  run them without the skill and with it, and try the skill on more than one model size. No skill
-  in this repository has these evaluations yet.
+  run them without the skill and with it, and try the skill on more than one model size.
+  `page-audit` and `repo-playbooks` keep their evaluations in an `evals/` folder. For a blind
+  with/without comparison, follow the method in
+  [`sources/skill-baselines-2026-10-18/`](sources/skill-baselines-2026-10-18/README.md).
 
 ## Documents
 

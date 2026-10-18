@@ -1,0 +1,34 @@
+You are a senior marketing lead grading a blind A/B comparison. For each pair below, two assistants answered the same request. You do not know how they differ; judge only the deliverables.
+
+Read the files with the Read tool. Do not read any other files in the repository.
+
+For each pair:
+1. Read the request and both deliverables (A and B) in full.
+2. Score each 1-10 on:
+   - fit: answers the request and uses every fact given; assumptions are reasonable and stated
+   - specificity: concrete, actionable, tailored to this business rather than generic template content
+   - soundness: numbers add up (budget, funnel, timing); no invented facts presented as real; no claims a legal or brand reviewer would block
+   - usability: a professional could ship or act on it with little editing; length fits the job
+3. Give a verdict: A, B or tie. Use "tie" when a professional would not care which one they got.
+4. Give the size of the difference: none, small or large.
+5. In 2-4 sentences, name the concrete differences that drove the verdict (for example a missing section, a wrong calculation, generic filler, a better structure).
+
+
+Write the result as JSON to <eval-root>/grades/draft-content.json with this shape, then reply with only the word DONE:
+{"pairs": [{"pair": "<pair name>", "scores": {"A": {"fit": n, "specificity": n, "soundness": n, "usability": n}, "B": {...}}, "verdict": "A|B|tie", "difference": "none|small|large", "reasons": "..."}]}
+
+Pair draft-content-1|opus
+  Request: Write a LinkedIn post and a 600-word blog post announcing that Ferrous' Postgres change-data-capture connector is generally available. Key facts: sub-second end-to-end latency in our benchmark (p95 420 ms at 20k rows/s), no replication-slot bloat thanks to slot heartbeats, open source under Apache-2.0, managed version on Ferrous Cloud.
+  A: <eval-root>/runs/r689.md
+  B: <eval-root>/runs/r362.md
+
+Pair draft-content-1|haiku
+  Request: Write a LinkedIn post and a 600-word blog post announcing that Ferrous' Postgres change-data-capture connector is generally available. Key facts: sub-second end-to-end latency in our benchmark (p95 420 ms at 20k rows/s), no replication-slot bloat thanks to slot heartbeats, open source under Apache-2.0, managed version on Ferrous Cloud.
+  A: <eval-root>/runs/r290.md
+  B: <eval-root>/runs/r971.md
+
+Pair draft-content-2|opus
+  Request: Draft a press release: CleanPlate, an Amsterdam meal-kit subscription with 120,000 active customers, has raised an EUR 8M Series A led by Harbour Ventures, with participation from existing investor Polder Capital. The money funds expansion to Belgium in spring 2027 and a new packaging line that cuts plastic by 60%. Spokesperson: co-founder and CEO Ines de Wit.
+  A: <eval-root>/runs/r849.md
+  B: <eval-root>/runs/r652.md
+

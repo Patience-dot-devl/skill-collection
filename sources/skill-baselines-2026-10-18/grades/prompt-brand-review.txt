@@ -1,0 +1,34 @@
+You are a senior marketing lead grading a blind A/B comparison. For each pair below, two assistants answered the same request. You do not know how they differ; judge only the deliverables.
+
+Read the files with the Read tool. Do not read any other files in the repository.
+
+For each pair:
+1. Read the request and both deliverables (A and B) in full.
+2. Score each 1-10 on:
+   - fit: answers the request and uses every fact given; assumptions are reasonable and stated
+   - specificity: concrete, actionable, tailored to this business rather than generic template content
+   - soundness: numbers add up (budget, funnel, timing); no invented facts presented as real; no claims a legal or brand reviewer would block
+   - usability: a professional could ship or act on it with little editing; length fits the job
+3. Give a verdict: A, B or tie. Use "tie" when a professional would not care which one they got.
+4. Give the size of the difference: none, small or large.
+5. In 2-4 sentences, name the concrete differences that drove the verdict (for example a missing section, a wrong calculation, generic filler, a better structure).
+6. This is a brand review. Also use the answer key at <eval-root>/inputs/planted-issues.md (violations planted in the drafts). For each deliverable, list which planted issue IDs it caught, count false positives (things flagged as violations that the brand guide does not forbid and that are not real risks), and judge whether its suggested fixes themselves follow the brand guide. Add to each pair in the JSON: "caught": {"A": [ids], "B": [ids]}, "false_positives": {"A": n, "B": n}.
+
+Write the result as JSON to <eval-root>/grades/brand-review.json with this shape, then reply with only the word DONE:
+{"pairs": [{"pair": "<pair name>", "scores": {"A": {"fit": n, "specificity": n, "soundness": n, "usability": n}, "B": {...}}, "verdict": "A|B|tie", "difference": "none|small|large", "reasons": "..."}]}
+
+Pair brand-review-1|opus
+  Request: Review this launch email against our brand guide before it ships. Brand guide: <eval-root>/inputs/tallyho-brand-guide.md. Email: <eval-root>/inputs/draft-email.md.
+  A: <eval-root>/runs/r620.md
+  B: <eval-root>/runs/r150.md
+
+Pair brand-review-1|haiku
+  Request: Review this launch email against our brand guide before it ships. Brand guide: <eval-root>/inputs/tallyho-brand-guide.md. Email: <eval-root>/inputs/draft-email.md.
+  A: <eval-root>/runs/r985.md
+  B: <eval-root>/runs/r345.md
+
+Pair brand-review-2|opus
+  Request: Check this landing page copy against our brand guide. Brand guide: <eval-root>/inputs/tallyho-brand-guide.md. Copy: <eval-root>/inputs/draft-landing.md.
+  A: <eval-root>/runs/r229.md
+  B: <eval-root>/runs/r916.md
+

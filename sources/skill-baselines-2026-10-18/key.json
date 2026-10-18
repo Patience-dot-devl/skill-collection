@@ -1,0 +1,182 @@
+[
+ {
+  "case": "campaign-plan-1",
+  "model": "opus",
+  "arm": "with",
+  "id": "r977"
+ },
+ {
+  "case": "campaign-plan-1",
+  "model": "opus",
+  "arm": "without",
+  "id": "r901"
+ },
+ {
+  "case": "campaign-plan-1",
+  "model": "haiku",
+  "arm": "with",
+  "id": "r305"
+ },
+ {
+  "case": "campaign-plan-1",
+  "model": "haiku",
+  "arm": "without",
+  "id": "r437"
+ },
+ {
+  "case": "campaign-plan-2",
+  "model": "opus",
+  "arm": "with",
+  "id": "r899"
+ },
+ {
+  "case": "campaign-plan-2",
+  "model": "opus",
+  "arm": "without",
+  "id": "r165"
+ },
+ {
+  "case": "competitive-brief-1",
+  "model": "opus",
+  "arm": "with",
+  "id": "r984"
+ },
+ {
+  "case": "competitive-brief-1",
+  "model": "opus",
+  "arm": "without",
+  "id": "r568"
+ },
+ {
+  "case": "competitive-brief-1",
+  "model": "haiku",
+  "arm": "with",
+  "id": "r614"
+ },
+ {
+  "case": "competitive-brief-1",
+  "model": "haiku",
+  "arm": "without",
+  "id": "r658"
+ },
+ {
+  "case": "competitive-brief-2",
+  "model": "opus",
+  "arm": "with",
+  "id": "r910"
+ },
+ {
+  "case": "competitive-brief-2",
+  "model": "opus",
+  "arm": "without",
+  "id": "r218"
+ },
+ {
+  "case": "email-sequence-1",
+  "model": "opus",
+  "arm": "with",
+  "id": "r952"
+ },
+ {
+  "case": "email-sequence-1",
+  "model": "opus",
+  "arm": "without",
+  "id": "r326"
+ },
+ {
+  "case": "email-sequence-1",
+  "model": "haiku",
+  "arm": "with",
+  "id": "r997"
+ },
+ {
+  "case": "email-sequence-1",
+  "model": "haiku",
+  "arm": "without",
+  "id": "r157"
+ },
+ {
+  "case": "email-sequence-2",
+  "model": "opus",
+  "arm": "with",
+  "id": "r732"
+ },
+ {
+  "case": "email-sequence-2",
+  "model": "opus",
+  "arm": "without",
+  "id": "r379"
+ },
+ {
+  "case": "draft-content-1",
+  "model": "opus",
+  "arm": "with",
+  "id": "r362"
+ },
+ {
+  "case": "draft-content-1",
+  "model": "opus",
+  "arm": "without",
+  "id": "r689"
+ },
+ {
+  "case": "draft-content-1",
+  "model": "haiku",
+  "arm": "with",
+  "id": "r971"
+ },
+ {
+  "case": "draft-content-1",
+  "model": "haiku",
+  "arm": "without",
+  "id": "r290"
+ },
+ {
+  "case": "draft-content-2",
+  "model": "opus",
+  "arm": "with",
+  "id": "r849"
+ },
+ {
+  "case": "draft-content-2",
+  "model": "opus",
+  "arm": "without",
+  "id": "r652"
+ },
+ {
+  "case": "brand-review-1",
+  "model": "opus",
+  "arm": "with",
+  "id": "r620"
+ },
+ {
+  "case": "brand-review-1",
+  "model": "opus",
+  "arm": "without",
+  "id": "r150"
+ },
+ {
+  "case": "brand-review-1",
+  "model": "haiku",
+  "arm": "with",
+  "id": "r345"
+ },
+ {
+  "case": "brand-review-1",
+  "model": "haiku",
+  "arm": "without",
+  "id": "r985"
+ },
+ {
+  "case": "brand-review-2",
+  "model": "opus",
+  "arm": "with",
+  "id": "r916"
+ },
+ {
+  "case": "brand-review-2",
+  "model": "opus",
+  "arm": "without",
+  "id": "r229"
+ }
+]

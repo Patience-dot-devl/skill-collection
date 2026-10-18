@@ -1,0 +1,34 @@
+You are a senior marketing lead grading a blind A/B comparison. For each pair below, two assistants answered the same request. You do not know how they differ; judge only the deliverables.
+
+Read the files with the Read tool. Do not read any other files in the repository.
+
+For each pair:
+1. Read the request and both deliverables (A and B) in full.
+2. Score each 1-10 on:
+   - fit: answers the request and uses every fact given; assumptions are reasonable and stated
+   - specificity: concrete, actionable, tailored to this business rather than generic template content
+   - soundness: numbers add up (budget, funnel, timing); no invented facts presented as real; no claims a legal or brand reviewer would block
+   - usability: a professional could ship or act on it with little editing; length fits the job
+3. Give a verdict: A, B or tie. Use "tie" when a professional would not care which one they got.
+4. Give the size of the difference: none, small or large.
+5. In 2-4 sentences, name the concrete differences that drove the verdict (for example a missing section, a wrong calculation, generic filler, a better structure).
+
+
+Write the result as JSON to <eval-root>/grades/competitive-brief.json with this shape, then reply with only the word DONE:
+{"pairs": [{"pair": "<pair name>", "scores": {"A": {"fit": n, "specificity": n, "soundness": n, "usability": n}, "B": {...}}, "verdict": "A|B|tie", "difference": "none|small|large", "reasons": "..."}]}
+
+Pair competitive-brief-1|opus
+  Request: Competitive brief: Tallyho (EUR 12/month invoicing app for Dutch freelancers, iDEAL payment links on every invoice, quarterly btw overview) versus Moneybird and e-Boekhouden. We are cheaper but we have no bank-feed integration yet. Where should we position, and what should sales say?
+  A: <eval-root>/runs/r568.md
+  B: <eval-root>/runs/r984.md
+
+Pair competitive-brief-1|haiku
+  Request: Competitive brief: Tallyho (EUR 12/month invoicing app for Dutch freelancers, iDEAL payment links on every invoice, quarterly btw overview) versus Moneybird and e-Boekhouden. We are cheaper but we have no bank-feed integration yet. Where should we position, and what should sales say?
+  A: <eval-root>/runs/r658.md
+  B: <eval-root>/runs/r614.md
+
+Pair competitive-brief-2|opus
+  Request: Assume this as given: Linear has just launched a free tier for teams of up to 10 people. We sell Trackwise, an issue tracker at USD 8 per seat aimed at small dev agencies (5-30 people), with built-in client portals and time tracking. Brief me on what this means for us and how we should respond in the next 30 days.
+  A: <eval-root>/runs/r218.md
+  B: <eval-root>/runs/r910.md
+

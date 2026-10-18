@@ -1,0 +1,17 @@
+{"pairs": [
+  {"pair": "competitive-brief-1|opus",
+   "scores": {"A": {"fit": 8, "specificity": 8, "soundness": 9, "usability": 8},
+              "B": {"fit": 9, "specificity": 9, "soundness": 8, "usability": 8}},
+   "verdict": "B", "difference": "small",
+   "reasons": "Both get Moneybird and e-Boekhouden pricing right (checked against the live pages) and both conclude 'do not lead on price; sell getting paid, not bookkeeping'. A is tighter and has the sharp insight that Moneybird Start billed yearly is EUR 12/month, the same as Tallyho, which leads to a concrete annual-plan recommendation. A also explicitly forbids promising a bank-feed roadmap. B adds what A lacks: a full battlecard with landmines, a disqualify rule, a worked iDEAL-fee price calculation (correct), the Moneybird backlash evidence (Trustpilot 2.3 from 252 reviews, verified) and a content-gap plan. However, B misses the annual-billing parity, has sales say the bank feed is 'on our roadmap' without that being given, and runs long."},
+  {"pair": "competitive-brief-1|haiku",
+   "scores": {"A": {"fit": 7, "specificity": 6, "soundness": 8, "usability": 7},
+              "B": {"fit": 6, "specificity": 6, "soundness": 4, "usability": 5}},
+   "verdict": "A", "difference": "large",
+   "reasons": "B states as fact that Moneybird's page shows annual-billing rates and that monthly rates are EUR 4/18/35/49. The page actually lists EUR 3/15/29/41 as monthly prices, with yearly billing cheaper. B's sales line 'e-Boekhouden's invoicing needs the EUR 24 plan' is also wrong and contradicts B's own note that the ZZP plan includes unlimited invoicing, so sales would quote a false comparison. B also spends much of the brief on an irrelevant tallyho.app name clash. A is shorter and more cautious but accurate: correct Moneybird yearly totals, the correct conclusion that e-Boekhouden ZZP is cheaper, and honest talk tracks. A is somewhat generic and has no battlecard, and it wrongly treats the Start bank-feed removal as unconfirmed by Moneybird's page."},
+  {"pair": "competitive-brief-2|opus",
+   "scores": {"A": {"fit": 8, "specificity": 7, "soundness": 8, "usability": 8},
+              "B": {"fit": 9, "specificity": 9, "soundness": 8, "usability": 8}},
+   "verdict": "B", "difference": "small",
+   "reasons": "Both take the launch as given, reach the same sound conclusion (hold price, protect 5-10 seat accounts, exploit the seat-11 cliff, decide pricing on evidence) and give correct Linear list prices (Basic USD 10, Business USD 16; verified). B goes further with a correct cost table by agency size and the agency-specific insight that Linear guests sit behind Business at USD 16/seat, which strengthens the client-portal wedge. B also adds a ready battlecard, search-gap content targets and a Linear-coexistence option. A is a clean, well-sequenced day-by-day 30-day plan with clear metrics, but it is less tailored and gives sales less to say."}
+]}

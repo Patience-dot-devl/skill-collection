@@ -1,9 +1,10 @@
 ---
 title: Evaluation of vendored skills against the current workflow
 status: live
-updated: 2026-10-14
+updated: 2026-10-18
 depends_on:
   - ../foundation/data-sources.md
+  - ../sources/skill-baselines-2026-10-18/README.md
 ---
 
 # Evaluation: vendored skills vs. our current workflow
@@ -110,6 +111,63 @@ One edit to vendored files: `ui-ux-pro-max/SKILL.md` script paths changed from
 `${CLAUDE_PLUGIN_ROOT}/.claude/skills/…` to `${CLAUDE_PLUGIN_ROOT}/skills/…` to match this plugin's
 layout. The `${CLAUDE_PLUGIN_ROOT}` substitution itself was not exercised inside a live Claude Code
 session; the search script was run directly.
+
+## Baseline test: marketing skills against no skill (2026-10-18)
+
+Five `marketing` skills were run with and without the skill on the same requests and graded blind.
+Method, prompts, all 30 outputs and the grades are in
+[`sources/skill-baselines-2026-10-18/`](../sources/skill-baselines-2026-10-18/README.md).
+
+| Skill | Opus 5.5 (2 pairs) | Haiku 5.5 (1 pair) |
+|---|---|---|
+| `draft-content` | with skill ×2, small | with skill, small |
+| `campaign-plan` | tie; with skill, small | without, small |
+| `competitive-brief` | with skill ×2, small | **without, large** |
+| `email-sequence` | without ×2, small | with skill, small |
+| `brand-review` | with skill; without (both small) | with skill, small |
+| **Total** | **6 with, 3 without, 1 tie** | **3 with, 2 without** |
+
+What the results show:
+
+- **The differences are small.** 14 of 15 verdicts were "small" or a tie. No skill made the core
+  deliverable clearly better.
+- **Wins came from extras, not from the core work.** The skill versions added SEO notes, pre-publish
+  fact-check lists and battlecards. The plans, sequences and copy were of similar quality.
+- **The skill makes output about 70% longer** on both models, and graders tend to reward length.
+- **`brand-review` found nothing extra.** With and without the skill, Opus caught all 11 planted
+  violations in each draft. The skill versions flagged more non-issues (3 against 0 across the Opus
+  pairs).
+- **The one large difference went against the skill.** On Haiku, `competitive-brief` with the skill
+  stated wrong competitor prices as fact. The template asks for more claims than a small model can
+  check.
+
+Conclusion: for writing tasks that the model already handles, a long section-by-section template adds
+length, not quality. What earns its place in a skill is the short, non-obvious rule: verify each
+competitor price against its live page, check the funnel and budget arithmetic, check weekdays against
+dates. This matches the "add only what Claude does not already know" rule in
+[CONTRIBUTING.md](../CONTRIBUTING.md#writing-skills).
+
+Limits: 15 pairs, one sample each, one LLM grader. The skill body was read directly, so triggering was
+not tested. `performance-report`, `seo-audit` and the landing-pages skills were not tested.
+
+## Triage: keep, slim, drop (2026-10-18)
+
+A recommendation, not yet carried out. Vendored skills can only be kept or dropped; slimming applies
+to skills that are forked or written here.
+
+| Verdict | Skills | Why |
+|---|---|---|
+| Drop | `skills/vendored/superpowers/` (15) | Not in the marketplace. The official `superpowers` plugin is installed and newer; the copy here only goes stale |
+| Drop | `marketing:brand-review` | No extra catches in the baseline test and more false positives. The value is in the user's own brand guide, not in the template |
+| Drop | `marketing:email-sequence` | Lost 2 of 3 pairs to no skill |
+| Drop | `marketing:content-creation` | Background twin of `draft-content`; the same job under a second trigger |
+| Slim | `marketing:campaign-plan` | Keep the checks the graders caught missing: funnel and budget sums, weekdays against dates, target met or gap stated |
+| Slim | `marketing:competitive-brief` | Keep the battlecard and the rule to verify every competitor price against its live page and mark the rest unverified |
+| Slim | `marketing:draft-content` | Keep the SEO notes and the pre-publish fact-check list; drop the per-channel templates |
+| Keep | `dev-tools` (3), `landing-pages:ui-ux-pro-max`, `landing-pages:web-quality-audit` | Ship scripts, data or a CLI workflow the model cannot do alone |
+| Keep | Webflow (5), `contentful-nextjs` | Drive a specific MCP server or API |
+| Keep | `marketing:page-audit`, `repo-playbooks` (4) | Scripts and repo conventions; both already have evals |
+| Test next | `cro`, `copywriting`, `ab-testing`, `core-web-vitals`, `performance`, `seo-aeo-best-practices`, `content-experimentation-best-practices`, `marketing:performance-report`, `marketing:seo-audit` | Mostly general knowledge; run the same baseline before keeping |
 
 ## Important caveat: vendoring ≠ installed
 
