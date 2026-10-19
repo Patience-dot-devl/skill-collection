@@ -1,7 +1,7 @@
 ---
 title: Skills evaluation history
 status: live
-updated: 2026-10-14
+updated: 2026-10-18
 depends_on:
   - SKILLS_EVALUATION.md
 ---
@@ -34,3 +34,9 @@ names the one it corrects; never edit or delete old entries.
 - The skill-by-skill verdicts for Superpowers were written against `d884ae0` and have not been
   re-read against v7.0.0 line by line. Re-check `writing-plans` and `executing-plans` before relying on them.
 
+## 2026-10-18
+
+- Added "Baseline test: marketing skills against no skill". Five `marketing` skills, 15 blind pairs
+  on Opus 5.5 and Haiku 5.5: 9 wins with the skill, 5 without, 1 tie; 14 of 15 differences small.
+  Source: [`sources/skill-baselines-2026-10-18/`](../sources/skill-baselines-2026-10-18/README.md).
+- Added "Triage: keep, slim, drop" as a recommendation. Nothing was removed or rewritten yet.

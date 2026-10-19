@@ -1,0 +1,159 @@
+{
+  "pairs": [
+    {
+      "pair": "brand-review-1|opus",
+      "scores": {
+        "A": {
+          "fit": 8,
+          "specificity": 8,
+          "soundness": 7,
+          "usability": 7
+        },
+        "B": {
+          "fit": 9,
+          "specificity": 8,
+          "soundness": 9,
+          "usability": 9
+        }
+      },
+      "verdict": "B",
+      "difference": "small",
+      "reasons": "Both catch all 11 planted issues and both drafts fix the tax claim, the name, the terms and the exclamation marks. A adds noise: it flags the spaced hyphen in the subject and 'Word' as violations, though the guide forbids neither. A's full rewrite also keeps 'Connect your bank and you're ready' even though A itself says that claim is unverified. B labels its non-violations as missed opportunities, drops the bank claim, adds the EUR 12 price and pillar 1, and gives a cleaner draft that is ready to ship. B's fixes follow the guide throughout. A's fixes mostly do, apart from keeping the unverified bank claim.",
+      "caught": {
+        "A": [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6",
+          "E7",
+          "E8",
+          "E9",
+          "E10",
+          "E11"
+        ],
+        "B": [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6",
+          "E7",
+          "E8",
+          "E9",
+          "E10",
+          "E11"
+        ]
+      },
+      "false_positives": {
+        "A": 2,
+        "B": 0
+      }
+    },
+    {
+      "pair": "brand-review-1|haiku",
+      "scores": {
+        "A": {
+          "fit": 8,
+          "specificity": 8,
+          "soundness": 6,
+          "usability": 8
+        },
+        "B": {
+          "fit": 9,
+          "specificity": 8,
+          "soundness": 7,
+          "usability": 7
+        }
+      },
+      "verdict": "B",
+      "difference": "small",
+      "reasons": "A misses the exclamation-mark violation (E3). Worse, under 'Checked and fine' it says the email has only one exclamation mark when it has three. A reviewer who trusts that line would ship a violation, but A's own rewrite happens to contain none. B catches all 11 issues but adds noise: an English-vs-Dutch language question rated Medium, 'Word' read as a dig at a rival, and freelancers-vs-zzp'ers. B also wrongly says the draft already uses 'btw' once. B's full revision still contains '30 seconds' with a source-needed placeholder and several bracketed notes, so it needs more editing than A's cleaner draft. Both sets of fixes follow the guide. On balance, full coverage counts for more in a pre-ship brand check.",
+      "caught": {
+        "A": [
+          "E1",
+          "E2",
+          "E4",
+          "E5",
+          "E6",
+          "E7",
+          "E8",
+          "E9",
+          "E10",
+          "E11"
+        ],
+        "B": [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6",
+          "E7",
+          "E8",
+          "E9",
+          "E10",
+          "E11"
+        ]
+      },
+      "false_positives": {
+        "A": 0,
+        "B": 3
+      }
+    },
+    {
+      "pair": "brand-review-2|opus",
+      "scores": {
+        "A": {
+          "fit": 9,
+          "specificity": 8,
+          "soundness": 7,
+          "usability": 8
+        },
+        "B": {
+          "fit": 9,
+          "specificity": 9,
+          "soundness": 9,
+          "usability": 8
+        }
+      },
+      "verdict": "B",
+      "difference": "small",
+      "reasons": "Both catch all 11 planted issues and add the accountant line in the right place. A's suggested revision brings in new risks: a headline 'Send an invoice in minutes', a time claim with no source; 'up to 2x faster' kept behind a placeholder footnote; and the 5,000+ count kept with no source because A assumes it is accurate. B's revision drops the 2x figure, footnotes the user count, and leads with pillar 3 (Dutch-first, iDEAL, kvk-nummer). B also gives clear before/after edits and a compliance section. B's only mild over-flag is the third-person heading 'Why freelancers switch'.",
+      "caught": {
+        "A": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6",
+          "L7",
+          "L8",
+          "L9",
+          "L10",
+          "L11"
+        ],
+        "B": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6",
+          "L7",
+          "L8",
+          "L9",
+          "L10",
+          "L11"
+        ]
+      },
+      "false_positives": {
+        "A": 0,
+        "B": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{"pairs": [
+  {
+    "pair": "email-sequence-1|opus",
+    "scores": {
+      "A": {"fit": 9, "specificity": 8, "soundness": 8, "usability": 9},
+      "B": {"fit": 9, "specificity": 9, "soundness": 8, "usability": 9}
+    },
+    "verdict": "B",
+    "difference": "small",
+    "reasons": "Both derive the ~29% activated-to-paid rate correctly, split into activated and non-activated tracks, and flag assumed features. B adds an insight specific to this business: freelancers invoice monthly, so many trials have nothing to bill. It answers that with scheduled and repeating invoices and an in-trial extension, and it adds a holdout group and a section on product fixes. A is more polished as a deliverable, with three subject options per email, a full flow diagram and a setup checklist. Its extension only comes after the trial ends."
+  },
+  {
+    "pair": "email-sequence-1|haiku",
+    "scores": {
+      "A": {"fit": 7, "specificity": 6, "soundness": 7, "usability": 6},
+      "B": {"fit": 8, "specificity": 6, "soundness": 8, "usability": 7}
+    },
+    "verdict": "B",
+    "difference": "small",
+    "reasons": "B is the more complete deliverable. Every email has subject options, preview text, a CTA and conditions, and B adds a flow diagram, branching rules and an A/B test with a correct sample-size estimate (~1,500 per arm). A is leaner, leaves unresolved brackets in the copy ('[excluding / including] BTW'), relies on assets that may not exist (a video, a template, a booking call), and has no flow diagram. The copy in both is fairly generic and makes little use of Dutch specifics. B also has small flaws: generic payment-habit tips in B2, 'less than EUR 0.40 a day' when it is exactly EUR 0.40 for a 30-day month, and mentions of 'the skill' left in the text."
+  },
+  {
+    "pair": "email-sequence-2|opus",
+    "scores": {
+      "A": {"fit": 9, "specificity": 9, "soundness": 9, "usability": 9},
+      "B": {"fit": 9, "specificity": 9, "soundness": 8, "usability": 8}
+    },
+    "verdict": "A",
+    "difference": "small",
+    "reasons": "Both segment by cancel reason, lead with the product fixes, use a 10% holdout and treat box-3 retention as the quality metric. A gives the 45% price segment the 30% offer in email 1, which answers their objection directly. It also includes ready-made post-reactivation 'Welcome back' and 'Make it fit' emails to protect box 3, plus offer guardrails (single-use codes, one offer every 6 months) and a check on per-serving maths. B makes the price segment wait until day 10 for the discount and uses a shareable public code (WELCOMEBACK30). It hard-codes 'ends Sunday' and assumes a US market without being asked. In its favour, B has a stronger click-based branching flow and a resend to non-openers."
+  }
+]}

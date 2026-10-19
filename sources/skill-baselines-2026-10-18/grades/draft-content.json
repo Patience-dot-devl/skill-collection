@@ -1,0 +1,17 @@
+{"pairs": [
+  {"pair": "draft-content-1|opus",
+   "scores": {"A": {"fit": 8, "specificity": 8, "soundness": 7, "usability": 8},
+              "B": {"fit": 9, "specificity": 8, "soundness": 8, "usability": 8}},
+   "verdict": "B", "difference": "small",
+   "reasons": "Both use all four facts accurately and keep the blog near 600 words. B adds headline options, a meta description and SEO notes, a pre-publish checklist that asks an engineer to verify the end-to-end latency definition and the heartbeat mechanism, and a stronger LinkedIn hook (the 3 a.m. WAL page). A is tighter and easier to ship as-is. But it presents an unverified heartbeat implementation detail and a 'preview' programme as fact without flagging them. B's extra notes add length but would be useful to a marketing lead."},
+  {"pair": "draft-content-1|haiku",
+   "scores": {"A": {"fit": 8, "specificity": 6, "soundness": 7, "usability": 7},
+              "B": {"fit": 8, "specificity": 8, "soundness": 8, "usability": 7}},
+   "verdict": "B", "difference": "small",
+   "reasons": "B explains the slot-bloat problem more accurately (quiet tables on a busy server) and hedges the benchmark well. Its Q&A LinkedIn post is more engaging, and it adds concrete use cases, a staged-rollout CTA, SEO notes and a verification checklist. A is clean and correctly sized, but its LinkedIn post is flat. A also invents stability and release-note commitments under 'What generally available means', and it frames the slot problem as a consumer that has stopped, which heartbeats do not fix. B loses usability points for leaked process notes in its assumptions ('I did not ask, as instructed...') and for having no link placeholders in the blog CTA."},
+  {"pair": "draft-content-2|opus",
+   "scores": {"A": {"fit": 9, "specificity": 8, "soundness": 8, "usability": 8},
+              "B": {"fit": 8, "specificity": 7, "soundness": 7, "usability": 8}},
+   "verdict": "A", "difference": "small",
+   "reasons": "Both deliver a complete release with all the facts given, a CEO quote, boilerplates and a green-claims caveat on the 60% figure. A has a stronger lead paragraph and three angle-specific alternative headlines. It leaves the investor quotes as guided placeholders instead of putting words in Harbour Ventures' mouth. Its pre-release checklist is sharper: Belgian language scope, disclosure limits and embargo coordination. B is compact and nearly shippable, but it adds unsupported claims ('packaging waste is one of the most frequent concerns', funds for 'local sourcing partnerships, logistics and the team'). It also leaves a stray '[120,000]' bracket and a dateline with no year."}
+]}

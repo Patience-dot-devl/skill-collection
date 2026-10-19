@@ -1,0 +1,17 @@
+{"pairs": [
+{"pair": "campaign-plan-1|opus",
+ "scores": {"A": {"fit": 9, "specificity": 9, "soundness": 7, "usability": 8},
+            "B": {"fit": 9, "specificity": 9, "soundness": 7, "usability": 8}},
+ "verdict": "tie", "difference": "small",
+ "reasons": "Both plans are waitlist-led and their arithmetic adds up. A: channels sum to 1,550, budget to 15,000, founding-discount revenue forgone 650x3x12 = 23,400. B: sources sum to 1,500, budget to 15,000, and 5,000x30%x47% is about 700. A adds more ready-to-use material (asset list with create-by dates, decision gates, trademark caution on Word/Excel in ads), but it calls 2027-01-12 a Monday and 2027-02-22 a Sunday (they are a Tuesday and a Monday), and its trial-start KPI (1,500/0.38) conflicts with its own 35% trial-to-paid target. B gets the dates right and adds a smart pre-launch paid test to fix the missing ad history. But its 150 paid signups at EUR 50 on 'EUR 7,500' conflicts with its own budget (6,500 after launch, 8,000 with the test) and with its own CPC/CVR midpoints, which give roughly EUR 80-110 per paid signup."},
+{"pair": "campaign-plan-1|haiku",
+ "scores": {"A": {"fit": 7, "specificity": 7, "soundness": 8, "usability": 7},
+            "B": {"fit": 8, "specificity": 7, "soundness": 6, "usability": 7}},
+ "verdict": "A", "difference": "small",
+ "reasons": "A gives a per-channel forecast that reconciles exactly (720+150+50+50+80+80 = 1,130; 15,000/1,130 = EUR 13 per signup; the 370 gap at EUR 90 is about EUR 33,000). It is honest that the goal is out of reach and gives concrete options to close the gap. A clear offer and kill rules complete it, but it has no asset list and its calendar is thin. B has the fuller template: calendar, asset table, sources, and correct scenario and MRR math (830/1,300/1,900). But its 500-1,000 'other sources' are never broken down, and its offer is muddled: a 72-hour offer sent 12 Jan, then a reminder 72 hours before it ends in week 2, with no price stated. Its EUR 60 paid stop-loss also contradicts its own benchmark, which implies about EUR 165 per paying customer."},
+{"pair": "campaign-plan-2|opus",
+ "scores": {"A": {"fit": 9, "specificity": 9, "soundness": 7, "usability": 8},
+            "B": {"fit": 7, "specificity": 8, "soundness": 7, "usability": 8}},
+ "verdict": "A", "difference": "small",
+ "reasons": "A builds a source-level funnel with volumes and rates that sums exactly (target 300, low 170; for example 830 clicks x EUR 6 = EUR 5k, 120 LinkedIn leads x EUR 90 = EUR 11k). It adds a sales-capacity table (430 conversations at a 70% qualification rate), a fully dated calendar with correct weekdays and Thanksgiving, an asset list, and a correct GitHub AUP warning against cold-emailing stargazers. Its inputs are aggressive: 270 OSS hand-raisers from about 600 ICP people, and 900 workshop registrations. B is more realistic (150 committed, 125-195 range, sound MQL-to-SQL math) and offers good options for reaching 300. But it says PGConf.EU on 20-23 Oct 'has just ended' although that falls inside its own prep week. It also proposes search ads with no budget line, and its 38 calls/week ignores qualification loss. B plans to half the requested target rather than to the target."}
+]}

@@ -1,0 +1,77 @@
+{
+ "campaign-plan-1|opus": {
+  "A": "r977",
+  "B": "r901",
+  "skill": "campaign-plan"
+ },
+ "campaign-plan-1|haiku": {
+  "A": "r437",
+  "B": "r305",
+  "skill": "campaign-plan"
+ },
+ "campaign-plan-2|opus": {
+  "A": "r899",
+  "B": "r165",
+  "skill": "campaign-plan"
+ },
+ "competitive-brief-1|opus": {
+  "A": "r568",
+  "B": "r984",
+  "skill": "competitive-brief"
+ },
+ "competitive-brief-1|haiku": {
+  "A": "r658",
+  "B": "r614",
+  "skill": "competitive-brief"
+ },
+ "competitive-brief-2|opus": {
+  "A": "r218",
+  "B": "r910",
+  "skill": "competitive-brief"
+ },
+ "email-sequence-1|opus": {
+  "A": "r952",
+  "B": "r326",
+  "skill": "email-sequence"
+ },
+ "email-sequence-1|haiku": {
+  "A": "r157",
+  "B": "r997",
+  "skill": "email-sequence"
+ },
+ "email-sequence-2|opus": {
+  "A": "r379",
+  "B": "r732",
+  "skill": "email-sequence"
+ },
+ "draft-content-1|opus": {
+  "A": "r689",
+  "B": "r362",
+  "skill": "draft-content"
+ },
+ "draft-content-1|haiku": {
+  "A": "r290",
+  "B": "r971",
+  "skill": "draft-content"
+ },
+ "draft-content-2|opus": {
+  "A": "r849",
+  "B": "r652",
+  "skill": "draft-content"
+ },
+ "brand-review-1|opus": {
+  "A": "r620",
+  "B": "r150",
+  "skill": "brand-review"
+ },
+ "brand-review-1|haiku": {
+  "A": "r985",
+  "B": "r345",
+  "skill": "brand-review"
+ },
+ "brand-review-2|opus": {
+  "A": "r229",
+  "B": "r916",
+  "skill": "brand-review"
+ }
+}
